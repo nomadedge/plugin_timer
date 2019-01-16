@@ -2,7 +2,25 @@ from datetime import datetime
 
 import sublime
 import sublime_plugin
+import time
+import threading
+import webbrowser
 
+
+def show_message():
+    sublime.message_dialog("You've already worked 40 minutes! It's time to break! Do not forget to set timer again!")
+    webbrowser.open("youtube.com")
+
+def show():
+    while True:
+        time.sleep(10)
+        update_seconds()
+        if sublime.timer_time is not None:
+            sublime.timer_time = datetime.now()
+        if sublime.timer_seconds > 18: #2400
+            sublime.really = 1
+            sublime.run_command("timer_stop")
+            return
 
 def update_seconds():
     if sublime.timer_time is not None:
@@ -46,6 +64,9 @@ class TimerStartCommand(sublime_plugin.ApplicationCommand):
         if not hasattr(sublime, 'timer_seconds'):
             sublime.timer_seconds = 0
         sublime.timer_time = datetime.now()
+        if threading.activeCount() > 0:
+            sublime.thread1 = threading.Thread(target=show)
+            sublime.thread1.start()   
 
 
 class TimerPauseCommand(sublime_plugin.ApplicationCommand):
@@ -66,6 +87,9 @@ class TimerStopCommand(sublime_plugin.ApplicationCommand):
 
         sublime.timer_seconds = 0
         sublime.timer_time = None
+        if sublime.really == 1:
+            sublime.really = 0
+            show_message()
 
 
 
