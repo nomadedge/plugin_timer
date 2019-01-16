@@ -1,0 +1,20 @@
+[
+    { "caption": "-" },
+    {
+        "caption": "Timer: Start",
+        "command": "timer_start"
+    },
+    {
+        "caption": "Timer: Pause",
+        "command": "timer_pause"
+    },
+    {
+        "caption": "Timer: Stop",
+        "command": "timer_stop"
+    },
+    {
+        "caption": "Timer: Currnet",
+        "command": "timer_current"
+    },
+    { "caption": "-" }
+]
