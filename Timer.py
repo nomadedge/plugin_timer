@@ -39,3 +39,10 @@ def show_time():
         output.append('1 second')
 
     sublime.status_message(' '.join(output))
+
+
+class TimerStartCommand(sublime_plugin.ApplicationCommand):
+    def run(self):
+        if not hasattr(sublime, 'timer_seconds'):
+            sublime.timer_seconds = 0
+        sublime.timer_time = datetime.now()
