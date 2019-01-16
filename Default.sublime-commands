@@ -1,0 +1,18 @@
+[
+    {
+        "caption": "Timer: Start",
+        "command": "timer_start"
+    },
+    {
+        "caption": "Timer: Pause",
+        "command": "timer_pause"
+    },
+    {
+        "caption": "Timer: Stop",
+        "command": "timer_stop"
+    },
+    {
+    	"caption": "Timer: Current",
+    	"command": "timer_current"
+    }
+]
