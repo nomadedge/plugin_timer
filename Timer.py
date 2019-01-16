@@ -66,3 +66,14 @@ class TimerStopCommand(sublime_plugin.ApplicationCommand):
 
         sublime.timer_seconds = 0
         sublime.timer_time = None
+
+
+
+class TimerCurrentCommand(sublime_plugin.ApplicationCommand):
+    def run(self):
+        update_seconds()
+
+        show_time()
+
+        if sublime.timer_time is not None:
+            sublime.timer_time = datetime.now()
