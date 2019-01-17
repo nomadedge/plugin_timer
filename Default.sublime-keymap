@@ -1,7 +1,0 @@
-[
-	{ "keys": [ "ctrl+alt+t" ], "command": "timer_start"},
-	{ "keys": [ "ctrl+alt+p" ], "command": "timer_pause"},
-	{ "keys": [ "ctrl+alt+s" ], "command": "timer_stop"},
-	{ "keys": [ "ctrl+alt+c" ], "command": "timer_current"},
-
-]
